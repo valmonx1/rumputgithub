@@ -29,13 +29,22 @@ $password='';
                 if($count > 0)  
                 {  
                      $_SESSION["username"] = $_POST["username"];  
-                     header("location:testing.php");  
+                     header("location:../cust_profile/index.php");  
                 }  
                 else  
                 {  
-                     $message = '<label>Wrong Data</label>';  
+                     /*$message = '<label>Wrong Data</label>'; */ 
+                     echo '<script language =  "javascript">';
+					echo 'alert ("Wrong password or username");';
+					echo 'window.location.href = "login.php"';
+					echo '</script>';
                 }  
-           } if (empty($_POST["username"]) || empty($_POST["password"])) {
+           } 
+
+
+
+
+           if (empty($_POST["username"]) || empty($_POST["password"])) {
            		{  
                 $message = '<label>All fields are required</label>';  
            		}

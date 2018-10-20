@@ -1,3 +1,7 @@
+<?php
+include 'booking_display.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,16 +82,15 @@
             <li class="breadcrumb-item">
               <a href="#">Booking</a>
             </li>
-            <li class="breadcrumb-item active">Overview</li>
+            <li class="breadcrumb-item active" method="get">Overview</li>
           </ol>
 
-              <form>
-                  <div class="row">
-                   
-                      <div class="col-lg-6 col-xs-6 mb-4">
+          <form action="booking_display.php">
+            <div class="row">
+               <div class="col-lg-6 col-xs-6 mb-4">
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
-                            <input type="name" class="form-control" placeholder="Search for...">
+                            <input type="name" class="form-control" value="<?php echo $user_name?>">
                           </div><!-- /input-group -->
                       </div><!-- /.col-lg-6 -->
                   
@@ -104,6 +107,13 @@
                             <input type="name" class="form-control" placeholder="Search for...">
                           </div><!-- /input-group -->
                       </div><!-- /.col-lg-6 -->
+            </div>
+          </form>
+
+              <form action="booking_function.php" method="post">
+                  <div class="row">
+                   
+                     
                   
                       <div class="col-lg-6 col-xs-6 mb-4">
                           <div class="input-group mb-3">
@@ -127,23 +137,21 @@
                       </div><!-- /.col-lg-6 -->
 
                       <div class="col-lg-6 col-xs-6 mb-4">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-clock"></i></span>
-                            <input type="name" class="form-control" placeholder="Search for...">
-                          </div><!-- /input-group -->
-                      </div><!-- /.col-lg-6 -->
-                  
-                      <div class="col-lg-6 col-xs-6 mb-4">
                           <div class="form-group">
                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-map"></i></span>
                               <textarea class="form-control" rows="5" id="comment"></textarea>
                           </div>
                       </div><!-- /.col-lg-6 -->
 
-
+                      <div class="col-lg-6 col-xs-6 mb-4">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-clock"></i></span>
+                            <input type="name" class="form-control" placeholder="Search for...">
+                          </div><!-- /input-group -->
+                      </div><!-- /.col-lg-6 -->
 
                   </div><!-- /.row -->
-                  <div class="col-lg-6 col-xs-6 mb-4"><button type="button" class="btn btn-primary btn-block">Button 1</button></div>
+                  <div class="col-lg-6 col-xs-6 mb-4"><button type="button" class="btn btn-primary btn-block" name="booking" value="booking">Button 1</button></div>
                 </form> 
                   
           
