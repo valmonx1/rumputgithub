@@ -1,16 +1,3 @@
-<?php
-include "database.php";
-
-$connectDb=mysqli_select_db($conn,'xyzrumput');
-
-$run = mysqli_query($conn,"SELECT * FROM user WHERE username = '$username'");
-$user_id = $_GET['user_id'];
-$username = $_GET['username'];
-$user_name = $_GET['user_name'];
-$user_tel = $_GET['user_tel'];
-$user_email = $_GET['user_email'];
-
-?>
 
 <!-- Modal -->
 <div class="modal fade" id="lol" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -23,9 +10,7 @@ $user_email = $_GET['user_email'];
         </button>
       </div>
       <div class="modal-body">
-<?php
-echo $username;
-?>
+
         <form action="index_update.php" method="post">
             <div class="row">
 
@@ -55,7 +40,7 @@ echo $username;
                       <div class="col-lg-12 col-xs-12 mb-4">
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope-open"></i></span>
-                            <input type="name" name="user_email" class="form-control" placeholder="Email Address" value="">
+                            <input type="name" name="user_email" class="form-control" placeholder="Email Address" value="<?php echo $row['user_email'];?>">
                           </div><!-- /input-group -->
                       </div><!-- /.col-lg-6 -->
 
