@@ -1,6 +1,7 @@
 <?php
-include 'booking_display.php';
+include 'session.php';
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +30,7 @@ include 'booking_display.php';
 
   </head>
 
-  
+
 
   <body id="page-top">
 
@@ -47,27 +48,27 @@ include 'booking_display.php';
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?username=<?php echo $username;?>">
             <i class="fas fa-fw fa fa-address-card"></i>
             <span>Biodata</span>
           </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="booking.php">
+          <a class="nav-link" href="booking.php?username=<?php echo $username;?>">
             <i class="fas fa-fw fa fa-calendar"></i>
             <span>Booking</span>
           </a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="payment.php?username=<?php echo $username;?>">
             <i class="fas fa-fw fa fa-credit-card"></i>
             <span>Payment</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="booking_status.php?username=<?php echo $username;?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Status Booking</span></a>
         </li>
@@ -85,76 +86,9 @@ include 'booking_display.php';
             <li class="breadcrumb-item active" method="get">Overview</li>
           </ol>
 
-          <form action="booking_display.php">
-            <div class="row">
-               <div class="col-lg-6 col-xs-6 mb-4">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
-                            <input type="name" class="form-control" value="<?php echo $user_name?>">
-                          </div><!-- /input-group -->
-                      </div><!-- /.col-lg-6 -->
-                  
-                      <div class="col-lg-6 col-xs-6 mb-4">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone"></i></span>
-                            <input type="name" class="form-control" placeholder="Search for...">
-                          </div><!-- /input-group -->
-                      </div><!-- /.col-lg-6 -->
+          <?php include ('booking_display.php');?>
+          <?php include ('booking_function.php');?>
 
-                      <div class="col-lg-6 col-xs-6 mb-4">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope-open"></i></span>
-                            <input type="name" class="form-control" placeholder="Search for...">
-                          </div><!-- /input-group -->
-                      </div><!-- /.col-lg-6 -->
-            </div>
-          </form>
-
-              <form action="booking_function.php" method="post">
-                  <div class="row">
-                   
-                     
-                  
-                      <div class="col-lg-6 col-xs-6 mb-4">
-                          <div class="input-group mb-3">
-                              <div class="input-group-prepend">
-                                  <label class="input-group-text" for="inputGroupSelect01"><i class="fa fa-plus-circle"></i></label>
-                              </div>
-                                <select class="custom-select" id="inputGroupSelect01">
-                                  <option selected>Choose...</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                </select>
-                          </div>
-                      </div>
-
-                      <div class="col-lg-6 col-xs-6 mb-4">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
-                            <input type="name" class="form-control" placeholder="Search for...">
-                          </div><!-- /input-group -->
-                      </div><!-- /.col-lg-6 -->
-
-                      <div class="col-lg-6 col-xs-6 mb-4">
-                          <div class="form-group">
-                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-map"></i></span>
-                              <textarea class="form-control" rows="5" id="comment"></textarea>
-                          </div>
-                      </div><!-- /.col-lg-6 -->
-
-                      <div class="col-lg-6 col-xs-6 mb-4">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-clock"></i></span>
-                            <input type="name" class="form-control" placeholder="Search for...">
-                          </div><!-- /input-group -->
-                      </div><!-- /.col-lg-6 -->
-
-                  </div><!-- /.row -->
-                  <div class="col-lg-6 col-xs-6 mb-4"><button type="button" class="btn btn-primary btn-block" name="booking" value="booking">Button 1</button></div>
-                </form> 
-                  
-          
 
         </div>
         <!-- /.container-fluid -->
