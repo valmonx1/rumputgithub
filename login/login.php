@@ -39,7 +39,7 @@ require 'database.php';
                             <form  action="login_function.php" method="post" autocomplete="on">
                                 <h1>Log in</h1> 
                                 <p> 
-                                    <label for="username" class="uname" > Your email or username </label>
+                                    <label for="name" class="uname" > Your email or username </label>
                                     <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
                                 </p>
                                 <p> 
@@ -63,7 +63,7 @@ require 'database.php';
                                 <h1> Sign up </h1> 
                                 <p> 
                                     <label for="usernamesignup" class="uname" >Your name</label>
-                                    <input id="usernamesignup" name="user_name" required="required" type="text" placeholder="eg. Nur Amalina" />
+                                    <input id="usernamesignup" name="cust_name" required="required" type="text" placeholder="eg. Nur Amalina" />
                                 </p>
                                 <p> 
                                     <label for="usernamesignup" class="uname" >Your username</label>
@@ -71,11 +71,11 @@ require 'database.php';
                                 </p>
                                 <p> 
                                     <label for="emailsignup" class="youmail"  > Your email</label>
-                                    <input id="emailsignup" name="user_email" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+                                    <input id="emailsignup" name="cust_email" required="required" type="email" placeholder="mysupermail@mail.com"/> 
                                 </p>
                                 <p> 
                                     <label for="telephone" class="youmail"  > Your Telephone</label>
-                                    <input id="emailsignup" name="user_tel" required="required" type="tel" placeholder="eg. 013xxxxxxxx"/> 
+                                    <input id="emailsignup" name="cust_tel" required="required" type="tel" placeholder="eg. 013xxxxxxxx"/> 
                                 </p>
 
                                 <p> 

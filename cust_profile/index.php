@@ -39,7 +39,7 @@ include 'session.php';
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+      <a class="navbar-brand mr-1" href="index.html">Welcome <?php echo $username; ?></a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -74,6 +74,11 @@ include 'session.php';
           <a class="nav-link" href="booking_status.php?username=<?php echo $username;?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Status Booking</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="products.php?username=<?php echo $username;?>">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Contoh paypall</span></a>
         </li>
       </ul>
 

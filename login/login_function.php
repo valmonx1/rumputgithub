@@ -7,14 +7,15 @@
 
     if ($username!='' && $password!='') {
       include 'database.php';
-      $query=("SELECT * FROM user WHERE username='$username' and password='$password'");
-      $result = mysqli_query($conn,$query);
-      $row = mysqli_fetch_row($result);
+      $query = mysqli_query($conn,"SELECT * FROM customer WHERE username='$username' and password='$password'");
+      
+      /*$result = mysqli_query($conn,$query);*/
+      $row = mysqli_fetch_row($query);
 
       if ($row) {
         session_start();
-        $_SESSION['user_id']=true;
-        $_SESSION['user']="user";
+        $_SESSION['cust_id']=true;
+        $_SESSION['customer']="customer";
         $_SESSION['username']=$username;
 
         mysqli_close($conn);
@@ -25,10 +26,41 @@
             echo '</script>';
       }
     } else {
-      echo '<script language =  "javascript">';
+      /*echo '<script language =  "javascript">';
+          echo 'alert ("Wrong input");';
+          echo 'window.location.href = "login.php"';
+          echo '</script>';*/
+        include 'database.php';
+
+        $bot = mysqli_query($conn, "SELECT * FROM worker WHERE username = '$username' and password = '$password'");
+
+        $table = mysqli_fetch_assoc($bot);
+        if ($table['staff_role'] == 'admin'){
+        	session_start();
+        	$_SESSION['workerid'] = true;
+        	$_SESSION['worker'] = "admin";
+        	$_SESSION['username'] = $username;
+        	session_write_close();
+        	mysqli_close($conn);
+
+        	echo "<script>window.location.href='admin/index.php?username=$username';</script>";
+        } else if ($table['staff_role'] == 'mower') {
+        	session_start();
+        	$_SESSION['workerid'] = true;
+        	$_SESSION['worker'] = "mower";
+        	$_SESSION['username'] = $username;
+        	session_write_close();
+        	mysqli_close($conn);
+
+        	echo "<script>window.location.href='staff/index.php?username=$username';</script>";
+        }
+
+    }
+    
+  } else{
+  	 echo '<script language =  "javascript">';
           echo 'alert ("Wrong input");';
           echo 'window.location.href = "login.php"';
           echo '</script>';
-    }
-    
   }
+  ?>

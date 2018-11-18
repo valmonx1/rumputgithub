@@ -9,7 +9,7 @@ $password='';
 
 
 try {
-$handler = new PDO("mysql:host=$hostname;dbname=xyzrumput",$username,$password);
+$handler = new PDO("mysql:host=$hostname;dbname=mowing",$username,$password);
 
 $handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // <== add this line
 
@@ -29,19 +29,19 @@ catch(PDOException $e)
 exit($e->getMessage());
 }
 
-$user_name = $_POST['user_name']; 
+$cust_name = $_POST['cust_name']; 
 $username = $_POST['username']; 
-$user_email = $_POST['user_email'];   
-$user_tel = $_POST['user_tel']; 
+$cust_email  = $_POST['cust_email'];   
+$cust_tel  = $_POST['cust_tel']; 
 $password = $_POST['password'];
 
-if (empty($user_name) || empty($username) || empty($user_email) || empty($user_tel) || empty($password)){
+if (empty($cust_name) || empty($username) || empty($cust_email) || empty($cust_tel ) || empty($password)){
     $error = "Complete all fields";
 }
 
 // Email validation
 
-if (!filter_var($user_email, FILTER_VALIDATE_EMAIL)){
+if (!filter_var($cust_email, FILTER_VALIDATE_EMAIL)){
     $error = "Enter a  valid email";
 }
 
@@ -52,24 +52,24 @@ if (strlen($password) <= 6){
 
 if(!isset($error)){
 //no error
-$sthandler = $handler->prepare("SELECT username FROM user WHERE username = :username");
-$sthandler = $handler->prepare("SELECT username FROM staff WHERE username = :username");
-$sthandler->bindParam(':username', $username);	
+$sthandler = $handler->prepare("SELECT username FROM customer WHERE username = :username");
+$sthandler = $handler->prepare("SELECT username FROM worker WHERE username = :username");
+$sthandler->bindParam(':username',$username);	
 $sthandler->execute();
 
 if($sthandler->rowCount() > 0){
     echo "<script type= 'text/javascript'>alert('Username already exists. Kindly please use another username');</script>";
 }else {
     //Securly insert into database
-    $sql = 'INSERT INTO user (user_name ,username, user_email, user_tel, password) VALUES (:user_name,:username,:user_email,:user_tel,:password)';    
+    $sql = 'INSERT INTO customer (cust_name, username, cust_email, cust_tel, password) VALUES (:cust_name,:username,:cust_email,:cust_tel,:password)';    
     $query = $handler->prepare($sql);
 
     $query->execute(array(
 
-    ':user_name' => $user_name,
+    ':cust_name' => $cust_name,
     ':username' => $username,
-    ':user_email' => $user_email,
-    ':user_tel' => $user_tel,
+    ':cust_email' => $cust_email,
+    ':cust_tel' => $cust_tel,
     ':password' => $password
     ));
     }

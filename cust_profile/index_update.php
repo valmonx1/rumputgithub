@@ -1,19 +1,19 @@
 <?php
 include "database.php";
 
-$connectDb = mysqli_select_db($conn,'xyzrumput');
+$connectDb = mysqli_select_db($conn,'mowing');
 
 /*include "joint_table.php";*/
 
   if (isset($_POST['update'])) {
   $username = $_POST['username'];
-  $user_name = $_POST['user_name'];
-  $user_tel = $_POST['user_tel'];
-  $user_email = $_POST['user_email']; 
-  $user_id = $_POST['user_id'];
+  $cust_name = $_POST['cust_name'];
+  $cust_tel = $_POST['cust_tel'];
+  $cust_email = $_POST['cust_email']; 
+  $cust_id = $_POST['cust_id'];
 
 
-  $sql = mysqli_query($conn,"UPDATE user SET username = '$username', user_name = '$user_name', user_tel = '$user_tel', user_email = '$user_email' WHERE user_id = '$user_id'");
+  $sql = mysqli_query($conn,"UPDATE customer SET username = '".$username."', cust_name = '".$cust_name."', cust_tel = '".$cust_tel."', cust_email = '".$cust_email."' WHERE cust_id = '".$cust_id."'");
   /*$sqlupdate = ;*/
 
   if ($sql) {

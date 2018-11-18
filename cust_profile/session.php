@@ -12,10 +12,10 @@ if (isset($_SESSION['username'])){
 <?php
 include 'database.php';
 
-$sql = "SELECT * FROM user WHERE username = '$username'";
+$sql = "SELECT * FROM customer WHERE username = '$username'";
 $run = mysqli_query($conn,$sql);
 while ($row = mysqli_fetch_array($run))
 {
-	$user_id=$row['user_id'];
+	$cust_id=$row['cust_id'];
 }
 ?>

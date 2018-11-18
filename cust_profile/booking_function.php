@@ -35,9 +35,8 @@ $connectDb = mysqli_select_db($conn,'xyzrumput');
                               </div>
                                 <select class="custom-select" id="inputGroupSelect01" name="booking_type">
                                   <option selected>Choose...</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
+                                  <option value="Mowing">Mowing</option>
+                                  <option value="Landscape">Landscape</option>
                                 </select>
                           </div>
                       </div>
