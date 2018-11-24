@@ -86,7 +86,7 @@ include 'session.php';
             <li class="breadcrumb-item active" method="get">Overview</li>
           </ol>
 
-          <?php include ('booking_display.php');?>
+         
           <?php include ('booking_function.php');?>
 
 

@@ -5,7 +5,8 @@
     $username=$_POST['username'];
     $password=$_POST['password'];
 
-    if ($username!='' && $password!='') {
+    if ($username!='' && $password!='') 
+    {
       include 'database.php';
       $query = mysqli_query($conn,"SELECT * FROM customer WHERE username='$username' and password='$password'");
       
@@ -20,16 +21,12 @@
 
         mysqli_close($conn);
 
-        echo '<script language = "javascript">';
+        	echo '<script language = "javascript">';
             echo 'alert ("Successful Login To Customer");';
             echo 'window.location.href = "../cust_profile/index.php?username=$username"';
             echo '</script>';
-      }
-    } else {
-      /*echo '<script language =  "javascript">';
-          echo 'alert ("Wrong input");';
-          echo 'window.location.href = "login.php"';
-          echo '</script>';*/
+      } else {
+      	
         include 'database.php';
 
         $bot = mysqli_query($conn, "SELECT * FROM worker WHERE username = '$username' and password = '$password'");
@@ -37,30 +34,42 @@
         $table = mysqli_fetch_assoc($bot);
         if ($table['staff_role'] == 'admin'){
         	session_start();
-        	$_SESSION['workerid'] = true;
+        	$_SESSION['worker_id'] = true;
         	$_SESSION['worker'] = "admin";
         	$_SESSION['username'] = $username;
-        	session_write_close();
+        	
         	mysqli_close($conn);
 
-        	echo "<script>window.location.href='admin/index.php?username=$username';</script>";
-        } else if ($table['staff_role'] == 'mower') {
+        	echo '<script language = "javascript">';
+            echo 'alert ("Successful Login To Admin");';
+            echo 'window.location.href = "../admin/admin_form.php?username=$username"';
+            echo '</script>';
+
+        } else if($table['staff_role'] == 'mower') {
         	session_start();
-        	$_SESSION['workerid'] = true;
+        	$_SESSION['worker_id'] = true;
         	$_SESSION['worker'] = "mower";
         	$_SESSION['username'] = $username;
-        	session_write_close();
+        	
         	mysqli_close($conn);
 
-        	echo "<script>window.location.href='staff/index.php?username=$username';</script>";
+        	echo '<script language = "javascript">';
+            echo 'alert ("Successful Login To Mower");';
+            echo 'window.location.href = "../admin/worker_profile.php?username=$username"';
+            echo '</script>';
         }
 
     }
-    
-  } else{
+  }
+  else{
   	 echo '<script language =  "javascript">';
           echo 'alert ("Wrong input");';
           echo 'window.location.href = "login.php"';
           echo '</script>';
+    
   }
+  } 
   ?>
+
+
+

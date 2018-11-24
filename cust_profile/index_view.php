@@ -172,7 +172,7 @@ while ($row = mysqli_fetch_array($run)) {
                         <i class="fa fa-user">
                         </i>
                       </span>
-                      <input type="name" name="newPass" class="form-control" placeholder="New Password">
+                      <input type="password" name="newPass" class="form-control" placeholder="New Password">
                     </div>
                     <!-- /input-group -->
                   </div>
@@ -183,7 +183,7 @@ while ($row = mysqli_fetch_array($run)) {
                         <i class="fa fa-phone">
                         </i>
                       </span>
-                      <input type="name" name="renewPass" class="form-control" placeholder="New Password Confirmation">
+                      <input type="password" name="renewPass" class="form-control" placeholder="New Password Confirmation">
                     </div>
                     <!-- /input-group -->
                   </div>

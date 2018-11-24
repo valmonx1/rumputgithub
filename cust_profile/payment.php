@@ -85,6 +85,59 @@ include 'session.php';
             <li class="breadcrumb-item active">Overview</li>
           </ol>
 
+          <!-- Icon Cards-->
+
+          <!-- Area Chart Example-->
+         
+
+          <!-- DataTables Example -->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fas fa-table"></i>
+              Data Table Example</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Service</th>
+                      <th>Price</th>
+                      <th>Date</th>
+                      <th>Time</th>
+                      <th>Total</th>
+                      <th>Pay</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Name</th>
+                      <th>Service</th>
+                      <th>Price</th>
+                      <th>Date</th>
+                      <th>Time</th>
+                      <th>Total</th>
+                      <th>Pay</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                   
+                    <tr>
+                      <td>Donna Snider</td>
+                      <td>Customer Support</td>
+                      <td>New York</td>
+                      <td>27</td>
+                      <td>2011/01/25</td>
+                      <td>$112,000</td>
+                      <td>$112,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card-footer small text-muted"></div>
+          </div>
+
         </div>
         <!-- /.container-fluid -->
 
@@ -109,7 +162,23 @@ include 'session.php';
     </a>
 
     <!-- Logout Modal-->
-   
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
