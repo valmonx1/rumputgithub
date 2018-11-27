@@ -1,4 +1,11 @@
 <?php
 session_start();
-session_destroy();
+	if (isset($_SESSION['username']))
+		{
+	$_SESSION = array();
+	session_destroy();
+	echo '<script language="javascript">';
+	echo 'window.location.href="../login/login.php";';
+	echo '</script>';
+	}
 ?>

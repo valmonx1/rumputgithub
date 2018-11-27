@@ -71,6 +71,12 @@ include 'session.php';
             <i class="fas fa-fw fa-table"></i>
             <span>Status Booking</span></a>
         </li>
+
+        <li class="nav-item">
+      <a class="nav-link" href="logout.php" onclick="return confirm('Are you sure?')">
+      <i class="fas fa-fw fa fa-share-square"></i>
+      <span>Logout</span></a>
+    </li>
       </ul>
 
       <div id="content-wrapper">
@@ -94,40 +100,36 @@ include 'session.php';
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Data Table Example</div>
+              Booking Information</div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th>Name</th>
-                      <th>Service</th>
-                      <th>Price</th>
-                      <th>Quantity</th>
-                      <th>Total</th>
+                      <th>Date</th>
+                      <th>Time</th>
                       <th>Status</th>
                     </tr>
                   </thead>
                   <tfoot>
-                    <tr>
-                      <th>Name</th>
-                      <th>Service</th>
-                      <th>Price</th>
-                      <th>Quantity</th>
-                      <th>Total</th>
-                      <th>Status</th>
-                    </tr>
                   </tfoot>
                   <tbody>
-                   
+                   <?php
+                   include 'database.php';
+
+                   $hye = mysqli_query($conn, "SELECT c.cust_id, c.cust_name, b.booking_id, b.booking_date, b.booking_time FROM customer c, booking b WHERE c.cust_id = b.cust_id AND c.cust_id = '$cust_id'");
+
+                   while ($row = mysqli_fetch_array($hye)){ 
+                   ?>
                     <tr>
-                      <td>Donna Snider</td>
-                      <td>Customer Support</td>
-                      <td>New York</td>
-                      <td>27</td>
-                      <td>2011/01/25</td>
-                      <td>$112,000</td>
+                      <td><?php echo $row['cust_name'];?></td>
+                      <td><?php echo $row['booking_date'];?></td>
+                      <td><?php echo $row['booking_time'];?></td>
+                      <td></td>
                     </tr>
+                    <?php }
+                   ?>
                   </tbody>
                 </table>
               </div>

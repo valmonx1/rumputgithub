@@ -71,6 +71,11 @@ include 'session.php';
             <i class="fas fa-fw fa-table"></i>
             <span>Status Booking</span></a>
         </li>
+		<li class="nav-item">
+			<a class="nav-link" href="logout.php" onclick="return confirm('Are you sure?')">
+			<i class="fas fa-fw fa fa-share-square"></i>
+			<span>Logout</span></a>
+		</li>
       </ul>
 
       <div id="content-wrapper">
@@ -94,7 +99,7 @@ include 'session.php';
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Data Table Example</div>
+              Booking Information</div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -110,27 +115,49 @@ include 'session.php';
                     </tr>
                   </thead>
                   <tfoot>
-                    <tr>
-                      <th>Name</th>
-                      <th>Service</th>
-                      <th>Price</th>
-                      <th>Date</th>
-                      <th>Time</th>
-                      <th>Total</th>
-                      <th>Pay</th>
-                    </tr>
+                  
                   </tfoot>
                   <tbody>
                    
+                   <?php 
+                   include 'database.php';
+                   $result = mysqli_query($conn, "SELECT c.cust_id, c.cust_name, b.booking_id, b.booking_date, b.booking_time, b.booking_address, b.booking_status, a.id_detail, a.amount, d.service_id, d.description, d.price FROM customer c, booking b, booking_detail a, service d WHERE c.cust_id = b.cust_id AND b.booking_id = a.booking_id AND d.service_id = a.service_id AND c.cust_id = '$cust_id'");
+                   while ($row = mysqli_fetch_array($result)) {
+                     ?>
+
                     <tr>
-                      <td>Donna Snider</td>
-                      <td>Customer Support</td>
-                      <td>New York</td>
-                      <td>27</td>
-                      <td>2011/01/25</td>
-                      <td>$112,000</td>
-                      <td>$112,000</td>
+                      <td><?php echo $row['cust_name'];?></td>
+                      <td><?php echo $row['description'];?></td>
+                      <td><?php echo $row['price'];?></td>
+                      <td><?php echo $row['booking_date'];?></td>
+                      <td><?php echo $row['booking_time'];?></td>
+                      
+                      
+                      <td><?php echo $row['amount'];?></td>
+                      
+
+                      <td>
+                        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+<!-- Paypal business test account email id so that you can collect the payments. -->
+                        <input type="hidden" name="business" value="zakarianabil5-facilitator@gmail.com">
+<!-- Buy Now button. -->
+                        <input type="hidden" name="cmd" value="_xclick">
+<!-- Details about the item that buyers will purchase. -->
+                        <input type="hidden" name="cust_name" value="<?php echo $row['cust_name']; ?>">
+                        <input type="hidden" name="description" value="<?php echo $row['description']; ?>">
+                        <input type="hidden" name="price" value="<?php echo $row['price']; ?>">
+                        <input type="hidden" name="currency_code" value="USD">
+<!-- URLs -->
+                        <input type='hidden' name='cancel_return' value='http://localhost/paypal_integration_php/cancel.php'>
+                        <input type='hidden' name='return' value='http://localhost/paypal_integration_php/success.php'>
+<!-- payment button. -->
+                        <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
+              <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+</form>
+                      </td>
                     </tr>
+                    <?php }
+                   ?>
                   </tbody>
                 </table>
               </div>

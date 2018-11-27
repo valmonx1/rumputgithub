@@ -72,6 +72,11 @@ include 'session.php';
             <i class="fas fa-fw fa-table"></i>
             <span>Status Booking</span></a>
         </li>
+        <li class="nav-item">
+      <a class="nav-link" href="logout.php" onclick="return confirm('Are you sure?')">
+      <i class="fas fa-fw fa fa-share-square"></i>
+      <span>Logout</span></a>
+    </li>
       </ul>
 
       <div id="content-wrapper">

@@ -11,11 +11,11 @@ $connectDb = mysqli_select_db($conn,'mowing');
   $booking_date = $_POST['booking_date'];
   $booking_time = $_POST['booking_time'];
   $booking_address = $_POST['booking_address']; 
-  echo $quantity = $_POST['quantity']; 
+  $quantity = $_POST['quantity']; 
   $cust_id = $_POST['cust_id'];
 
 
-  $sql = "INSERT INTO booking (booking_date, booking_time, booking_address, cust_id, worker_id) VALUES ('$booking_date', '$booking_time', '$booking_address', '$cust_id', '0');";
+  $sql = "INSERT INTO booking (booking_date, booking_time, booking_address, cust_id) VALUES ('$booking_date', '$booking_time', '$booking_address', '$cust_id');";
 
   $sql .= "SELECT LAST_INSERT_ID() INTO @booking;";
 
@@ -23,8 +23,20 @@ $connectDb = mysqli_select_db($conn,'mowing');
 
 
   $sql .= "INSERT INTO booking_detail (booking_id, service_id, quantity) VALUES (@booking, LAST_INSERT_ID(), '$quantity');";
+ echo "description";
+  echo $description;
 
-  if(mysqli_multi_query($conn, $sql)){
+  echo $booking_date;
+  echo $booking_time;
+  echo $booking_address;
+  echo "quantity";
+  echo $quantity;
+  echo "cust_id";
+  echo $cust_id;
+  
+
+  if(mysqli_multi_query($conn, $sql))
+  {
     echo'<script language="javascript">';
       echo'alert ("Booking success");';
       echo 'window.location.href = "booking.php?username=$username"';

@@ -63,24 +63,24 @@ require 'database.php';
                                 <h1> Sign up </h1> 
                                 <p> 
                                     <label for="usernamesignup" class="uname" >Your name</label>
-                                    <input id="usernamesignup" name="cust_name" required="required" type="text" placeholder="eg. Nur Amalina" />
+                                    <input id="usernamesignup" name="cust_name" required="required" type="text" placeholder="eg. Nur Amalina" required=""/>
                                 </p>
                                 <p> 
                                     <label for="usernamesignup" class="uname" >Your username</label>
-                                    <input id="usernamesignup" name="username" required="required" type="text" placeholder="eg. Henshin" />
+                                    <input id="usernamesignup" name="username" required="required" type="text" placeholder="eg. Henshin" required=""/>
                                 </p>
                                 <p> 
                                     <label for="emailsignup" class="youmail"  > Your email</label>
-                                    <input id="emailsignup" name="cust_email" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+                                    <input id="emailsignup" name="cust_email" required="required" type="email" placeholder="mysupermail@mail.com" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="xxx@gmail.com"/> 
                                 </p>
                                 <p> 
                                     <label for="telephone" class="youmail"  > Your Telephone</label>
-                                    <input id="emailsignup" name="cust_tel" required="required" type="tel" placeholder="eg. 013xxxxxxxx"/> 
+                                    <input id="emailsignup" name="cust_tel" required="required" type="tel" placeholder="eg. 013xxxxxxxx" required="" pattern="[0-9]{3}-[0-9]{7,8}"/> 
                                 </p>
 
                                 <p> 
                                     <label for="passwordsignup" class="youpasswd" >Your password </label>
-                                    <input id="passwordsignup" name="password" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                    <input id="passwordsignup" name="password" required="required" type="password" placeholder="eg. X8df!90EO" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
                                 </p>
                                 
                                 <p class="signin button"> 

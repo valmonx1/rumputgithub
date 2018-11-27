@@ -76,10 +76,11 @@ include 'session.php';
             <span>Status Booking</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="products.php?username=<?php echo $username;?>">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Contoh paypall</span></a>
-        </li>
+      <a class="nav-link" href="logout.php" onclick="return confirm('Are you sure?')">
+      <i class="fas fa-fw fa fa-share-square"></i>
+      <span>Logout</span></a>
+    </li>
+        
       </ul>
 
       <div id="content-wrapper">

@@ -5,43 +5,31 @@ while ($row = mysqli_fetch_array($run)) {
 ?>
 <div class="row">
   <div class="col-lg-6 col-xs-6 mb-4">
+    <label>Username</label>
     <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">
-        <i class="fa fa-user">
-        </i>
-      </span>
       <input type="name" name="username" class="form-control" value="<?php echo $row['username'];?>" readonly>
     </div>
     <!-- /input-group -->
   </div>
   <div class="col-lg-6 col-xs-6 mb-4">
+    <label>Name</label>
     <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">
-        <i class="fa fa-user">
-        </i>
-      </span>
       <input type="name" class="form-control" value="<?php echo $row['cust_name'];?>" readonly>
     </div>
     <!-- /input-group -->
   </div>
   <!-- /.col-lg-6 -->
   <div class="col-lg-6 col-xs-6 mb-4">
+    <label>Telephone Number</label>
     <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">
-        <i class="fa fa-phone">
-        </i>
-      </span>
       <input type="name" name="cust_tel" class="form-control" value="<?php echo $row['cust_tel'];?>" readonly>
     </div>
     <!-- /input-group -->
   </div>
   <!-- /.col-lg-6 -->
   <div class="col-lg-6 col-xs-6 mb-4">
+    <label>Email Address</label>
     <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">
-        <i class="fa fa-envelope-open">
-        </i>
-      </span>
       <input type="name" name="cust_email" class="form-control" value="<?php echo $row['cust_email'];?>" readonly>
     </div>
     <!-- /input-group -->
